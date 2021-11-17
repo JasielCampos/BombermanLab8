@@ -26,9 +26,13 @@ class GameManager
 
     bool isRunning = false;  // game loop status
     Uint32 lastTickTime = 0; // last time for delta calculation
-
+    GameManager(const std::string windowName, const int windowWidth, const int windowHeight);
+    static GameManager* instance;
 public:
+
     KeyboardInput* keyboardInput;
+
+    static GameManager* getInstance(const std::string windowName, const int windowWidth, const int windowHeight);
     /**
         * @brief Create GameManager
         *
@@ -36,7 +40,9 @@ public:
         * @param windowWidth - width of window
         * @param windowHeight - height of window
         */
-    GameManager(const std::string windowName, const int windowWidth, const int windowHeight);
+
+    //GameManager(const std::string windowName, const int windowWidth, const int windowHeight);
+
     /**
         * @brief Destroy GameManager
         *

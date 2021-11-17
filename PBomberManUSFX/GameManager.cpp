@@ -8,6 +8,15 @@
 #include "./Scenes/LevelScene.h"
 #include "./Scenes/MenuScene.h"
 
+GameManager* GameManager::instance = nullptr;
+
+GameManager* GameManager::getInstance(const std::string windowName, const int windowWidth, const int windowHeight)
+{
+    if (instance == nullptr) {
+        instance = new GameManager(std::string("Bomberman USFX"), 800, 600);
+    }
+    return instance;
+}
 
 GameManager::GameManager(const std::string _windowName, const int width, const int height)
     : windowWidth(width), windowHeight(height), windowName(_windowName)
